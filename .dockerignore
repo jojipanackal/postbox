@@ -1,0 +1,10 @@
+.git
+.idea
+.env*
+target
+docs
+README.md
+HELP.md
+compose*.yaml
+AGENTS.md
+*.iml

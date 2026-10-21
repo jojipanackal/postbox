@@ -61,7 +61,7 @@ Swagger UI is at [http://localhost:8080/swagger-ui.html](http://localhost:8080/s
 
 The application connects to PostgreSQL at `localhost:5433/postbox` and RabbitMQ at `localhost:5672`. Make sure `docker compose -f compose.local.yaml ps` shows the services as healthy before starting the app.
 
-On a server with an existing PostgreSQL instance, run `docker compose up -d` to start **only RabbitMQ** from `compose.yaml`. Set `SPRING_DATASOURCE_URL` (and `SPRING_DATASOURCE_USERNAME` if needed) plus `POSTGRES_PASSWORD` for that database; the default datasource URL points to the local Compose PostgreSQL on port 5433. Supply `RABBITMQ_PASSWORD` in `.env` for Compose and in the application's environment. Both Compose files use the same project name and RabbitMQ volume, so use one configuration at a time; don't remove volumes when switching.
+For a Dockerized deployment on a VPS with an existing PostgreSQL container and standalone RabbitMQ, see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). The default `compose.yaml` runs only Postbox on a shared Docker network with those services; configure production RabbitMQ independently on the VPS. For local development, continue to use `compose.local.yaml` instead.
 
 ## Try the notification API
 
